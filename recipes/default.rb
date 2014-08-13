@@ -73,6 +73,11 @@ bash "opening ufw for ssh traffic" do
   EOC
 end
 
+# open port 80 and 443 for NGINX
+bash "allowing nginx traffic through firewall" do
+  user "root"
+  code "ufw allow 80 && ufw allow 443"
+end
 
 # if we've specified firewall rules in the node definition
 # then apply them here. These should be in the format:
